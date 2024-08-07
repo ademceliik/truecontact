@@ -1,3 +1,5 @@
+import 'package:calisma_app_1/view/menu/account_details_screen.dart';
+import 'package:calisma_app_1/view/navigation_settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -10,6 +12,40 @@ class MenuScreen extends StatefulWidget {
 }
 
 class MenuScreenState extends State<MenuScreen> {
+  List<Widget> pages = [
+    Container(child: Text("1. sayfa")),
+    Container(child: Text("2. sayfa")),
+    AccountDetailsScreen(),
+    NavigationSettingScreen(),
+    Container(child: Text("5. sayfa")),
+    Container(child: Text("6. sayfa")),
+    Container(child: Text("7. sayfa")),
+    Container(child: Text("8. sayfa")),
+    Container(child: Text("9. sayfa")),
+  ];
+  List<String> titles = [
+    "Siparişlerim",
+    "Talepler",
+    "Hesabı Düzenle",
+    "Konum",
+    "Dil",
+    "Cüzdan",
+    "TrueCoin Satın Al",
+    "Engellenmiş Kullanıcılar",
+    "Çıkış Yap"
+  ];
+  List<IconData> icons = [
+    Icons.shopping_basket,
+    Icons.back_hand_rounded,
+    Icons.person,
+    Icons.map_rounded,
+    Icons.language_rounded,
+    Icons.wallet,
+    Icons.money_rounded,
+    Icons.stop_circle_outlined,
+    Icons.logout_rounded,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,56 +87,45 @@ class MenuScreenState extends State<MenuScreen> {
               )),
           Container(
             color: Colors.white,
-            height: 64.h,
+            height: 67.h,
             child: SingleChildScrollView(
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: const BeveledRectangleBorder()),
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      SizedBox(width: 5.w),
-                      Icon(
-                        Icons.shopping_basket_rounded,
-                        color: Colors.pink,
-                      ),
-                      SizedBox(width: 3.w),
-                      Text("Buton",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w300,
-                          ))
-                    ],
-                  )), /* ListBody(
-                  children: List<Widget>.generate(15, (int index) {
-                return ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        shape: const BeveledRectangleBorder()),
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        SizedBox(width: 5.w),
-                        Icon(
-                          Icons.shopping_basket_rounded,
-                          color: Colors.pink,
-                        ),
-                        SizedBox(width: 3.w),
-                        Text("Buton",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w300,
-                            ))
-                      ],
-                    ));
-              })), */
-            ),
+                child: Column(
+              children: List<Widget>.generate(titles.length, (int index) {
+                return buildItem(index);
+              }),
+            )),
           )
         ],
       ),
     );
+  }
+
+  Widget buildItem(int index) {
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            shape: const BeveledRectangleBorder()),
+        onPressed: () {
+          setState(() {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (_) => pages.elementAt(index)));
+          });
+        },
+        child: Row(
+          children: [
+            SizedBox(width: 5.w),
+            Icon(
+              icons[index],
+              color: Colors.pink,
+            ),
+            SizedBox(width: 3.w),
+            Text(titles[index],
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w300,
+                ))
+          ],
+        ));
   }
 }

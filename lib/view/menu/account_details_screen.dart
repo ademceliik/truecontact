@@ -1,10 +1,9 @@
 import 'package:calisma_app_1/view/menu/personal_photos_screen.dart';
-import 'package:calisma_app_1/widget/my_appbar.dart';
-import 'package:calisma_app_1/widget/pink_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'personal_info_screen.dart';
+import 'personal_social_accounts_screen.dart';
 
 class AccountDetailsScreen extends StatefulWidget {
   const AccountDetailsScreen({super.key});
@@ -18,7 +17,7 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
   List<Widget> pages = [
     PersonalInfoScreen(), //Container(child: Text("1. sayfa")),
     PersonalPhotosScreen(),
-    Container(child: Text("3. sayfa")),
+    PersonalSocialAccountsScreen(),
     Container(child: Text("4. sayfa")),
     Container(child: Text("5. sayfa")),
     Container(child: Text("6. sayfa")),
