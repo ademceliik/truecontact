@@ -2,6 +2,7 @@ import 'package:calisma_app_1/view/menu/personal_photos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'personal_address_screen.dart';
 import 'personal_info_screen.dart';
 import 'personal_social_accounts_screen.dart';
 
@@ -18,7 +19,7 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
     PersonalInfoScreen(), //Container(child: Text("1. sayfa")),
     PersonalPhotosScreen(),
     PersonalSocialAccountsScreen(),
-    Container(child: Text("4. sayfa")),
+    PersonalAddressScreen(), //Container(child: Text("4. sayfa")),
     Container(child: Text("5. sayfa")),
     Container(child: Text("6. sayfa")),
   ];

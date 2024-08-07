@@ -69,6 +69,7 @@ class _PersonalSocialAccountsScreenState
               ));
   }
 
+  // show picker when tap to any saved account
   void _showPicker(context, int index) {
     int pickerIndex = 0;
     showCupertinoModalPopup(
@@ -119,6 +120,7 @@ class _PersonalSocialAccountsScreenState
     );
   }
 
+  // show dialog for add and edit an account
   Future<dynamic> buildAlertDialog(
       {required BuildContext context, int? index}) {
     return showDialog(
@@ -200,6 +202,8 @@ class _PersonalSocialAccountsScreenState
   }
 }
 
+// Social media model for users social media accounts
+// will move to model folder
 class SocialMedia {
   Platform platform;
   String username;
@@ -209,6 +213,7 @@ class SocialMedia {
 
 enum Platform { youtube, instagram, facebook }
 
+// add icon to platform. can turn to image path
 extension PlatformIconDataExtension on Platform {
   IconData get iconData {
     switch (this) {
