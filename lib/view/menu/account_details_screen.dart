@@ -1,3 +1,5 @@
+import 'package:calisma_app_1/view/menu/personal_email_change_screen.dart';
+import 'package:calisma_app_1/view/menu/personal_password_change_screen.dart';
 import 'package:calisma_app_1/view/menu/personal_photos_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -16,12 +18,12 @@ class AccountDetailsScreen extends StatefulWidget {
 class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
   int currentIndex = 0;
   List<Widget> pages = [
-    PersonalInfoScreen(), //Container(child: Text("1. sayfa")),
-    PersonalPhotosScreen(),
-    PersonalSocialAccountsScreen(),
-    PersonalAddressScreen(), //Container(child: Text("4. sayfa")),
-    Container(child: Text("5. sayfa")),
-    Container(child: Text("6. sayfa")),
+    const PersonalInfoScreen(),
+    const PersonalPhotosScreen(),
+    const PersonalSocialAccountsScreen(),
+    const PersonalAddressScreen(),
+    const PersonalEmailChangeScreen(),
+    const PersonalPasswordChangeScreen(email: "email")
   ];
   List<String> titles = [
     "Kişisel Bilgi",

@@ -18,7 +18,6 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
       barrierDismissible: false,
       context: context,
       builder: (_) => Container(
-        height: 270,
         color: Colors.white,
         child: SingleChildScrollView(
           child: child,

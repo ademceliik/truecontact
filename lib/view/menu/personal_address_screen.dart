@@ -100,71 +100,31 @@ class _PersonalAddressScreenState extends State<PersonalAddressScreen> {
 
   // show picker when tap to any saved address
   void _showPicker(context, int index) {
-    int pickerIndex = 0;
     showCupertinoModalPopup(
-      barrierDismissible: true,
-      context: context,
-      builder: (_) => Container(
-        height: 25.h,
-        color: Colors.white,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              TextButton(
-                child: const Text("Seç"),
-                onPressed: () {
-                  // Edit address details
-                  if (pickerIndex == 0) {
-                    Navigator.pop(context);
-                    buildAlertDialog(context: context, index: index);
-                  }
-                  // Delete address
-                  else if (pickerIndex == 1) {
-                    setState(() {
-                      addresses.removeAt(index);
-                    });
-                  }
-                  Navigator.maybePop(context);
-                },
+        barrierDismissible: true,
+        context: context,
+        builder: (_) => CupertinoActionSheet(
+              actions: [
+                CupertinoActionSheetAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      buildAlertDialog(context: context, index: index);
+                    },
+                    child: const Text("Düzenle")),
+                CupertinoActionSheetAction(
+                    onPressed: () {
+                      setState(() {
+                        addresses.removeAt(index);
+                      });
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Kaldır")),
+              ],
+              cancelButton: CupertinoActionSheetAction(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Vazgeç"),
               ),
-              SizedBox(
-                  height: 15.h,
-                  child: CupertinoPicker(
-                      scrollController:
-                          FixedExtentScrollController(initialItem: 0),
-                      itemExtent: 30,
-                      onSelectedItemChanged: (value) {
-                        pickerIndex = value;
-                      },
-                      children: [
-                        // make item clickable
-                        GestureDetector(
-                          child: const Text("Düzenle"),
-                          onTap: () {
-                            if (pickerIndex == 0) {
-                              Navigator.pop(context);
-                              buildAlertDialog(context: context, index: index);
-                            }
-                          },
-                        ),
-                        // make item clickable
-                        GestureDetector(
-                          child: const Text("Kaldır"),
-                          onTap: () {
-                            if (pickerIndex == 1) {
-                              setState(() {
-                                addresses.removeAt(index);
-                              });
-                              Navigator.pop(context);
-                            }
-                          },
-                        )
-                      ])),
-            ],
-          ),
-        ),
-      ),
-    );
+            ));
   }
 
   // show dialog for add and edit an account

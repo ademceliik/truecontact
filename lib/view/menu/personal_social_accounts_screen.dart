@@ -16,9 +16,6 @@ class _PersonalSocialAccountsScreenState
     SocialMedia(platform: Platform.youtube, username: "exampleUser")
   ];
 
-  TextEditingController socialTextController = TextEditingController();
-  int? socialIndex;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,58 +68,43 @@ class _PersonalSocialAccountsScreenState
 
   // show picker when tap to any saved account
   void _showPicker(context, int index) {
-    int pickerIndex = 0;
     showCupertinoModalPopup(
-      barrierDismissible: true,
-      context: context,
-      builder: (_) => Container(
-        height: 25.h,
-        color: Colors.white,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              TextButton(
-                child: const Text("Seç"),
-                onPressed: () {
-                  // Edit account details
-                  if (pickerIndex == 1) {
-                    socialIndex = accounts[index].platform.index;
-                    socialTextController.text = accounts[index].username;
-                    buildAlertDialog(context: context, index: index);
-                  }
-                  // Delete account
-                  else if (pickerIndex == 2) {
-                    setState(() {
-                      accounts.removeAt(index);
-                    });
-                  }
-                  Navigator.maybePop(context);
-                },
+        barrierDismissible: true,
+        context: context,
+        builder: (_) => CupertinoActionSheet(
+              actions: [
+                CupertinoActionSheetAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+
+                      buildAlertDialog(context: context, index: index);
+                    },
+                    child: const Text("Düzenle")),
+                CupertinoActionSheetAction(
+                    onPressed: () {
+                      setState(() {
+                        accounts.removeAt(index);
+                      });
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Kaldır")),
+              ],
+              cancelButton: CupertinoActionSheetAction(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Vazgeç"),
               ),
-              SizedBox(
-                  height: 15.h,
-                  child: CupertinoPicker(
-                      scrollController:
-                          FixedExtentScrollController(initialItem: 0),
-                      itemExtent: 30,
-                      onSelectedItemChanged: (value) {
-                        pickerIndex = value;
-                      },
-                      children: const [
-                        Text("Vazgeç"),
-                        Text("Düzenle"),
-                        Text("Kaldır")
-                      ])),
-            ],
-          ),
-        ),
-      ),
-    );
+            ));
   }
 
   // show dialog for add and edit an account
   Future<dynamic> buildAlertDialog(
       {required BuildContext context, int? index}) {
+    TextEditingController socialTextController = TextEditingController();
+    int? socialIndex;
+    if (index != null) {
+      socialIndex = accounts[index].platform.index;
+      socialTextController.text = accounts[index].username;
+    }
     return showDialog(
         context: context,
         builder: (context) => AlertDialog(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -14,6 +15,7 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.enabled,
     this.keyboardType,
+    this.inputFormatters,
   });
 
   final String hintText;
@@ -26,6 +28,7 @@ class CustomTextField extends StatelessWidget {
   final Function()? onTap;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,7 @@ class CustomTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
             color: Colors.grey.shade200),
         child: TextField(
+          inputFormatters: inputFormatters,
           keyboardType: keyboardType,
           enabled: enabled,
           controller: controller,
@@ -46,7 +50,7 @@ class CustomTextField extends StatelessWidget {
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
             border: InputBorder.none,
-            suffix: suffix,
+            suffixIcon: suffix,
             hintText: hintText,
           ),
         ));
