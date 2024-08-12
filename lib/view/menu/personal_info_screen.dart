@@ -33,118 +33,120 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        InkWell(
-          onTap: () {},
-          child: Container(
-            height: 15.h,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-                border: Border.all(
-                    width: 2.w, color: Colors.black, style: BorderStyle.solid),
-                borderRadius: const BorderRadius.all(Radius.circular(60))),
-            child: Image.asset("assets/logo/logo.png"),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          InkWell(
+            onTap: () {},
+            child: Container(
+              height: 15.h,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      width: 2.w, color: Colors.black, style: BorderStyle.solid),
+                  borderRadius: const BorderRadius.all(Radius.circular(60))),
+              child: Image.asset("assets/logo/logo.png"),
+            ),
           ),
-        ),
-        SizedBox(height: 1.h),
-        CustomTextField(
-            onChanged: (text) {}, hintText: "İsim", icon: Icons.person_outline),
-        SizedBox(height: 1.h),
-        CustomTextField(
+          SizedBox(height: 1.h),
+          CustomTextField(
+              onChanged: (text) {}, hintText: "İsim", icon: Icons.person_outline),
+          SizedBox(height: 1.h),
+          CustomTextField(
+              onChanged: (text) {},
+              hintText: "Hakkında",
+              icon: Icons.info_outline),
+          SizedBox(height: 1.h),
+          CustomTextField(
             onChanged: (text) {},
-            hintText: "Hakkında",
-            icon: Icons.info_outline),
-        SizedBox(height: 1.h),
-        CustomTextField(
-          onChanged: (text) {},
-          hintText: "Telefon Numarası",
-          icon: Icons.phone_android_outlined,
-          keyboardType: TextInputType.number,
-        ),
-        SizedBox(height: 1.h),
-        CustomTextField(
-          controller: birthdayController,
-          onTap: () => _showPicker(
-              context,
-              Column(
-                children: [
-                  TextButton(
-                    child: const Text("Kapat"),
-                    onPressed: () => Navigator.maybePop(context),
-                  ),
-                  SizedBox(
-                    height: 250,
-                    child: CupertinoDatePicker(
-                      minimumYear: DateTime.now().year - 150,
-                      maximumYear: DateTime.now().year,
-                      mode: CupertinoDatePickerMode.date,
-                      initialDateTime: DateTime.now(),
-                      onDateTimeChanged: (value) {
-                        // Update users birthday
-                        birthdayController.text =
-                            '${value.day.toString().padLeft(2, '0')}/'
-                            '${value.month.toString().padLeft(2, '0')}/'
-                            '${value.year.toString()}';
-                      },
+            hintText: "Telefon Numarası",
+            icon: Icons.phone_android_outlined,
+            keyboardType: TextInputType.number,
+          ),
+          SizedBox(height: 1.h),
+          CustomTextField(
+            controller: birthdayController,
+            onTap: () => _showPicker(
+                context,
+                Column(
+                  children: [
+                    TextButton(
+                      child: const Text("Kapat"),
+                      onPressed: () => Navigator.maybePop(context),
                     ),
-                  ),
-                ],
-              )),
-          readOnly: true,
-          hintText: "Doğum Tarihi",
-          icon: Icons.date_range,
-          onChanged: (value) {
-            print("değişti");
-          },
-        ),
-        SizedBox(height: 1.h),
-        CustomTextField(
-          onTap: () => _showPicker(
-              context,
-              Column(
-                children: [
-                  TextButton(
-                    child: const Text("Seç"),
-                    onPressed: () {
-                      genderOrWorkController.text = textList[_pickerIndex];
-                      // Update users gender
-                      Navigator.maybePop(context);
-                    },
-                  ),
-                  SizedBox(
+                    SizedBox(
                       height: 250,
-                      child: CupertinoPicker(
-                          scrollController: FixedExtentScrollController(
-                              initialItem: _pickerIndex),
-                          itemExtent: 30,
-                          onSelectedItemChanged: (value) {
-                            _pickerIndex = value;
-                            //Update users gender
-                          },
-                          children: textList.map((e) => Text(e)).toList())),
-                ],
-              )),
-          readOnly: true,
-          controller: genderOrWorkController,
-          hintText: "Cinsiyet",
-          icon: Icons.male,
-          onChanged: (value) {
-            // Update users gender
-          },
-        ),
-        SizedBox(height: 1.h),
-        Align(
-          alignment: Alignment.topRight,
-          child: PinkElevatedButton(
-            condition: true,
-            text: "Kaydet",
-            onPress: () {
-              // Save user personal info logics
+                      child: CupertinoDatePicker(
+                        minimumYear: DateTime.now().year - 150,
+                        maximumYear: DateTime.now().year,
+                        mode: CupertinoDatePickerMode.date,
+                        initialDateTime: DateTime.now(),
+                        onDateTimeChanged: (value) {
+                          // Update users birthday
+                          birthdayController.text =
+                              '${value.day.toString().padLeft(2, '0')}/'
+                              '${value.month.toString().padLeft(2, '0')}/'
+                              '${value.year.toString()}';
+                        },
+                      ),
+                    ),
+                  ],
+                )),
+            readOnly: true,
+            hintText: "Doğum Tarihi",
+            icon: Icons.date_range,
+            onChanged: (value) {
+              print("değişti");
             },
           ),
-        )
-      ],
+          SizedBox(height: 1.h),
+          CustomTextField(
+            onTap: () => _showPicker(
+                context,
+                Column(
+                  children: [
+                    TextButton(
+                      child: const Text("Seç"),
+                      onPressed: () {
+                        genderOrWorkController.text = textList[_pickerIndex];
+                        // Update users gender
+                        Navigator.maybePop(context);
+                      },
+                    ),
+                    SizedBox(
+                        height: 250,
+                        child: CupertinoPicker(
+                            scrollController: FixedExtentScrollController(
+                                initialItem: _pickerIndex),
+                            itemExtent: 30,
+                            onSelectedItemChanged: (value) {
+                              _pickerIndex = value;
+                              //Update users gender
+                            },
+                            children: textList.map((e) => Text(e)).toList())),
+                  ],
+                )),
+            readOnly: true,
+            controller: genderOrWorkController,
+            hintText: "Cinsiyet",
+            icon: Icons.male,
+            onChanged: (value) {
+              // Update users gender
+            },
+          ),
+          SizedBox(height: 1.h),
+          Align(
+            alignment: Alignment.topRight,
+            child: PinkElevatedButton(
+              condition: true,
+              text: "Kaydet",
+              onPress: () {
+                // Save user personal info logics
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }

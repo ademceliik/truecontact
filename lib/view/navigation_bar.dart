@@ -1,8 +1,7 @@
-import 'package:calisma_app_1/view/forgot_password_screen.dart';
 import 'package:calisma_app_1/view/map_screen.dart';
 import 'package:calisma_app_1/view/menu_screen.dart';
+import 'package:calisma_app_1/view/search_screen_view.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'menu/account_details_screen.dart';
@@ -55,6 +54,8 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      
       body: _pages[_currentIndex],
       bottomNavigationBar: Theme(
         data: ThemeData(
@@ -113,6 +114,8 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
       onTap: () {
         setState(() {
           _currentIndex = 2;
+          Navigator.push(context, MaterialPageRoute(
+                builder: (_) => SearchScreenView()));
         });
         print(_currentIndex);
         Navigator(

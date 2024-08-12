@@ -1,4 +1,3 @@
-import 'package:calisma_app_1/navigation_bar.dart';
 import 'package:calisma_app_1/view/forgot_password_screen.dart';
 import 'package:calisma_app_1/view/login_screen.dart';
 import 'package:calisma_app_1/view/map_screen.dart';

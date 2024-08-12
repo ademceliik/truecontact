@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -141,6 +140,7 @@ class _PersonalAddressScreenState extends State<PersonalAddressScreen> {
     return showDialog(
         context: context,
         builder: (context) => AlertDialog(
+          
               title: const Text("Adres Ekle"),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -150,7 +150,7 @@ class _PersonalAddressScreenState extends State<PersonalAddressScreen> {
                     decoration: const InputDecoration(hintText: "Adres Adı"),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 2.h,
                   ),
                   TextField(
                     minLines: 2,
@@ -159,7 +159,7 @@ class _PersonalAddressScreenState extends State<PersonalAddressScreen> {
                     decoration: const InputDecoration(hintText: "Açık Adres"),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 2.h,
                   ),
                   TextField(
                     controller: postalCodeController,
@@ -170,7 +170,7 @@ class _PersonalAddressScreenState extends State<PersonalAddressScreen> {
                     decoration: const InputDecoration(hintText: "Posta Kodu"),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 3.h,
                   ),
                 ],
               ),
