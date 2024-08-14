@@ -1,5 +1,6 @@
 import 'package:calisma_app_1/view/menu/account_details_screen.dart';
 import 'package:calisma_app_1/view/navigation_settings_screen.dart';
+import 'package:calisma_app_1/view/user_details_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -13,7 +14,7 @@ class MenuScreen extends StatefulWidget {
 
 class MenuScreenState extends State<MenuScreen> {
   List<Widget> pages = [
-    Container(child: Text("1. sayfa")),
+    UserDetailsScreenView(), //Container(child: Text("1. sayfa")),
     Container(child: Text("2. sayfa")),
     AccountDetailsScreen(),
     NavigationSettingScreen(),
@@ -87,7 +88,7 @@ class MenuScreenState extends State<MenuScreen> {
               )),
           Container(
             color: Colors.white,
-            height: 67.h,
+            height: 65.h,
             child: SingleChildScrollView(
                 child: Column(
               children: List<Widget>.generate(titles.length, (int index) {

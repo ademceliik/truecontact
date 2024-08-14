@@ -19,7 +19,7 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
   final List<Widget> _pages = [
     MapScreen(), //Container(child: Text("1. sayfa")),
     Container(child: Text("1. sayfa")),
-    Container(child: Text("floating sayfa")),
+    SearchScreenView(), //Container(child: Text("floating sayfa")),
     AccountDetailsScreen(),
     MenuScreen(),
   ];
@@ -55,7 +55,6 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      
       body: _pages[_currentIndex],
       bottomNavigationBar: Theme(
         data: ThemeData(
@@ -114,8 +113,6 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
       onTap: () {
         setState(() {
           _currentIndex = 2;
-          Navigator.push(context, MaterialPageRoute(
-                builder: (_) => SearchScreenView()));
         });
         print(_currentIndex);
         Navigator(

@@ -10,6 +10,7 @@ class SearchScreenView extends StatefulWidget {
 }
 
 class _SearchScreenViewState extends State<SearchScreenView> {
+  bool hasResult = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,22 +18,61 @@ class _SearchScreenViewState extends State<SearchScreenView> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Center(child: Image.asset("assets/logo/header-logo.png")),
-        leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new_rounded),
-            onPressed: () {}),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             CustomTextField(
-                hintText: "Mağaza veya Kişi Ara..", icon: Icons.search_rounded),
+                onChanged: (text) {
+                  if (text.length > 0) {
+                    setState(() {
+                      hasResult = true;
+                    });
+                  } else
+                    setState(() {
+                      hasResult = false;
+                    });
+                },
+                hintText: "Mağaza veya Kişi Ara..",
+                icon: Icons.search_rounded),
             Container(
                 height: 100.h,
-                child: GridView.count(
-                    crossAxisCount: 2,
-                    children: List<Widget>.generate(2, (int index) {
-                      return buildItem(index);
-                    })))
+                child: hasResult
+                    ? Column(
+                        children: List<Widget>.generate(2, (int index) {
+                        return buildSearchItem(index);
+                      }))
+                    : GridView.count(
+                        crossAxisCount: 2,
+                        children: List<Widget>.generate(2, (int index) {
+                          return buildItem(index);
+                        })))
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildSearchItem(int index) {
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        height: 8.h,
+        margin: EdgeInsets.only(left: 2.w, right: 2.w, top: 1.w),
+        child: Row(
+          children: [
+            SizedBox(width: 5.w),
+            Icon(Icons.person),
+            SizedBox(width: 10.w),
+            SizedBox(
+              width: 70.w,
+              child: Text(
+                  maxLines: 2, overflow: TextOverflow.visible, "Adem Çelik"),
+            )
           ],
         ),
       ),
