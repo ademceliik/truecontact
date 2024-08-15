@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../widget/custom_text_field.dart';
-import '../widget/pink_elevated_button.dart';
+import '../../widget/custom_text_field.dart';
+import '../../widget/pink_elevated_button.dart';
 
 class NewPasswordScreenView extends StatefulWidget {
   final String email;

@@ -1,3 +1,6 @@
+import 'package:calisma_app_1/model/shop_item.dart';
+import 'package:calisma_app_1/view/item_details_screen_view.dart';
+import 'package:calisma_app_1/view/user_details_screen_view.dart';
 import 'package:calisma_app_1/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -10,6 +13,12 @@ class SearchScreenView extends StatefulWidget {
 }
 
 class _SearchScreenViewState extends State<SearchScreenView> {
+  ShopItem item = ShopItem(
+      title: "Iphone 15 Pro Max 256GB",
+      cost: 45000,
+      dealer: "Müslüm",
+      details: "Detaylar",
+      imagePath: ["assets/logo/logo.png", "assets/logo/logo.png"]);
   bool hasResult = false;
   @override
   Widget build(BuildContext context) {
@@ -24,14 +33,15 @@ class _SearchScreenViewState extends State<SearchScreenView> {
           children: [
             CustomTextField(
                 onChanged: (text) {
-                  if (text.length > 0) {
+                  if (text.isNotEmpty) {
                     setState(() {
                       hasResult = true;
                     });
-                  } else
+                  } else {
                     setState(() {
                       hasResult = false;
                     });
+                  }
                 },
                 hintText: "Mağaza veya Kişi Ara..",
                 icon: Icons.search_rounded),
@@ -55,7 +65,10 @@ class _SearchScreenViewState extends State<SearchScreenView> {
 
   Widget buildSearchItem(int index) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => UserDetailsScreenView()));
+      },
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey),
@@ -70,7 +83,7 @@ class _SearchScreenViewState extends State<SearchScreenView> {
             SizedBox(width: 10.w),
             SizedBox(
               width: 70.w,
-              child: Text(
+              child: const Text(
                   maxLines: 2, overflow: TextOverflow.visible, "Adem Çelik"),
             )
           ],
@@ -80,28 +93,36 @@ class _SearchScreenViewState extends State<SearchScreenView> {
   }
 
   Widget buildItem(int index) {
-    return Card(
-      color: Colors.white,
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(
-            'assets/logo/logo.png',
-            fit: BoxFit.fill,
-          ),
-          Text(
-            'Iphone 12s 128gb aaaaaaa',
-            textAlign: TextAlign.center,
-          ),
-          Text("1250tl")
-        ],
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => ItemDetailsScreenView(item: item)));
+      },
+      child: Card(
+        color: Colors.white,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(
+              item.imagePath[0],
+              fit: BoxFit.fill,
+            ),
+            Text(
+              item.title,
+              textAlign: TextAlign.center,
+            ),
+            Text("${item.cost} tl")
+          ],
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        elevation: 10,
+        margin: EdgeInsets.all(10),
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      elevation: 10,
-      margin: EdgeInsets.all(10),
     );
   }
 }

@@ -1,12 +1,12 @@
 import 'package:calisma_app_1/provider/register_screen_provider.dart';
-import 'package:calisma_app_1/view/register_screen.dart';
+import 'package:calisma_app_1/view/login/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../provider/login_screen_provider.dart';
-import '../widget/custom_text_field.dart';
-import '../widget/pink_elevated_button.dart';
+import '../../provider/login_screen_provider.dart';
+import '../../widget/custom_text_field.dart';
+import '../../widget/pink_elevated_button.dart';
 import 'forgot_password_screen.dart';
 
 class LoginScreenView extends StatefulWidget {

@@ -64,10 +64,11 @@ class _UserDetailsScreenViewState extends State<UserDetailsScreenView> {
                       buildStar(2),
                       buildStar(3),
                       buildStar(4)
-                      //Icon(Icons.star_border_outlined),
                     ],
                   ),
-                  Text("2.00 / 1 Kişi")
+                  Text(
+                    "2.00 / 1 Kişi",
+                  )
                 ],
               )),
           Container(

@@ -15,12 +15,12 @@ class PinkElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.pink.shade300,
+          backgroundColor: Colors.red,
           disabledBackgroundColor: Colors.pink.shade100),
       onPressed: (condition) ? onPress : null,
       child: Text(
         text,
-        style: TextStyle(color: (condition) ? Colors.black : Colors.black45),
+        style: TextStyle(color: (condition) ? Colors.white : Colors.white54),
       ),
     );
   }

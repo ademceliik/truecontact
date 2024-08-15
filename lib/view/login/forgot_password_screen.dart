@@ -1,9 +1,9 @@
-import 'package:calisma_app_1/view/new_password_screen.dart';
+import 'package:calisma_app_1/view/login/new_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../widget/custom_text_field.dart';
-import '../widget/loading_pop_scope.dart';
-import '../widget/pink_elevated_button.dart';
+import '../../widget/custom_text_field.dart';
+import '../../widget/loading_pop_scope.dart';
+import '../../widget/pink_elevated_button.dart';
 
 class ForgotPasswordScreenView extends StatefulWidget {
   const ForgotPasswordScreenView({super.key});

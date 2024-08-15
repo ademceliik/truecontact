@@ -1,16 +1,16 @@
-import 'package:calisma_app_1/view/forgot_password_screen.dart';
-import 'package:calisma_app_1/view/login_screen.dart';
-import 'package:calisma_app_1/view/map_screen.dart';
+import 'package:calisma_app_1/view/login/forgot_password_screen.dart';
+import 'package:calisma_app_1/view/login/login_screen.dart';
+import 'package:calisma_app_1/view/navigation-bar/map_screen.dart';
 import 'package:calisma_app_1/view/navigation_bar.dart';
 import 'package:calisma_app_1/view/navigation_settings_screen.dart';
-import 'package:calisma_app_1/view/register_screen.dart';
+import 'package:calisma_app_1/view/login/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'provider/login_screen_provider.dart';
 import 'provider/register_screen_provider.dart';
-import 'view/new_password_screen.dart';
+import 'view/login/new_password_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
         //debugShowCheckedModeBanner: false, // bunu kaldır gözünü seveyim
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          scaffoldBackgroundColor: Colors.white,
+          //colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
           useMaterial3: true,
         ),
         home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -56,13 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         MediaQuery.of(context).viewPadding.top -
         MediaQuery.of(context).viewPadding.bottom; */
 
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        /* appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ), */
-        body: MyNavigationBar());
+    return Scaffold(resizeToAvoidBottomInset: false, body: MyNavigationBar());
 
     /* ChangeNotifierProvider<LoginScreenProvider>(
             create: (context) => LoginScreenProvider(),

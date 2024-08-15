@@ -1,6 +1,8 @@
-import 'package:calisma_app_1/view/map_screen.dart';
-import 'package:calisma_app_1/view/menu_screen.dart';
-import 'package:calisma_app_1/view/search_screen_view.dart';
+import 'package:calisma_app_1/view/item_details_screen_view.dart';
+import 'package:calisma_app_1/view/navigation-bar/map_screen.dart';
+import 'package:calisma_app_1/view/navigation-bar/menu_screen.dart';
+import 'package:calisma_app_1/view/navigation-bar/my_basket_screen_view.dart';
+import 'package:calisma_app_1/view/navigation-bar/search_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -20,7 +22,7 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
     MapScreen(), //Container(child: Text("1. sayfa")),
     Container(child: Text("1. sayfa")),
     SearchScreenView(), //Container(child: Text("floating sayfa")),
-    AccountDetailsScreen(),
+    MyBasketScreenView(),
     MenuScreen(),
   ];
 

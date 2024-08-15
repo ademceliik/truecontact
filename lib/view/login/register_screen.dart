@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../provider/register_screen_provider.dart';
-import '../widget/custom_text_field.dart';
-import '../widget/pink_elevated_button.dart';
+import '../../provider/register_screen_provider.dart';
+import '../../widget/custom_text_field.dart';
+import '../../widget/pink_elevated_button.dart';
 
 class RegisterScreenView extends StatefulWidget {
   const RegisterScreenView({super.key});

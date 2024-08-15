@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../model/can_visible_item.dart';
-import '../widget/map_navbar_item.dart';
-import '../widget/my_icon_button.dart';
-import 'navigation_settings_screen.dart';
+import '../../model/can_visible_item.dart';
+import '../../widget/map_navbar_item.dart';
+import '../../widget/my_icon_button.dart';
+import '../navigation_settings_screen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});

@@ -53,12 +53,14 @@ class MenuScreenState extends State<MenuScreen> {
       body: Column(
         children: [
           Container(
+              color: Colors.red, height: MediaQuery.of(context).padding.top),
+          Container(
               color: Colors.red,
               height: 20.h,
               width: 100.w,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   InkWell(
@@ -88,7 +90,7 @@ class MenuScreenState extends State<MenuScreen> {
               )),
           Container(
             color: Colors.white,
-            height: 65.h,
+            height: 59.h,
             child: SingleChildScrollView(
                 child: Column(
               children: List<Widget>.generate(titles.length, (int index) {
