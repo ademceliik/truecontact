@@ -13,12 +13,12 @@ class MyBasketScreenView extends StatefulWidget {
 class _MyBasketScreenViewState extends State<MyBasketScreenView> {
   Map<ShopItem, int> items = {
     ShopItem(
-        imagePath: ["assets/logo/header-logo.png"],
-        dealer: "ogz",
+        imagePath: ["assets/logo/iphone.jpg"],
+        dealer: "müslüm",
         title: "iphone 15 pro max",
         cost: 1285): 1,
     ShopItem(
-        imagePath: ["assets/logo/logo.png"],
+        imagePath: ["assets/logo/header-logo.png"],
         dealer: "adem",
         title: "22 ayar 100 gram madonna gerdanlık",
         cost: 250000): 1,

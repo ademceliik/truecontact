@@ -40,17 +40,26 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
             onTap: () {},
             child: Container(
               height: 15.h,
+              width: 15.h,
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: AssetImage(
+                        "assets/logo/logo.png",
+                      )),
                   border: Border.all(
-                      width: 2.w, color: Colors.black, style: BorderStyle.solid),
-                  borderRadius: const BorderRadius.all(Radius.circular(60))),
-              child: Image.asset("assets/logo/logo.png"),
+                      width: 2.w,
+                      color: Colors.black,
+                      style: BorderStyle.solid),
+                  borderRadius: BorderRadius.all(Radius.circular(60))),
             ),
           ),
           SizedBox(height: 1.h),
           CustomTextField(
-              onChanged: (text) {}, hintText: "İsim", icon: Icons.person_outline),
+              onChanged: (text) {},
+              hintText: "İsim",
+              icon: Icons.person_outline),
           SizedBox(height: 1.h),
           CustomTextField(
               onChanged: (text) {},

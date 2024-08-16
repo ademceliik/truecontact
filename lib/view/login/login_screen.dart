@@ -1,5 +1,6 @@
 import 'package:calisma_app_1/provider/register_screen_provider.dart';
 import 'package:calisma_app_1/view/login/register_screen.dart';
+import 'package:calisma_app_1/view/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -97,8 +98,12 @@ class _LoginScreenViewState extends State<LoginScreenView> {
                   condition: emailValidate && passwordValidate,
                   text: "Oturum Aç",
                   onPress: () {
-                    print(loginScreenProvider.user.email);
-                    print(loginScreenProvider.user.password);
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => MyNavigationBar()),
+                        (Route<dynamic> route) => false);
+                    /* print(loginScreenProvider.user.email);
+                    print(loginScreenProvider.user.password); */
                   },
                 ),
               )

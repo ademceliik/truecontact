@@ -116,7 +116,6 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
         setState(() {
           _currentIndex = 2;
         });
-        print(_currentIndex);
         Navigator(
           key: navigatorKeys[_currentIndex],
           onGenerateRoute: (RouteSettings settings) {

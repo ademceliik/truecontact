@@ -18,7 +18,7 @@ class _SearchScreenViewState extends State<SearchScreenView> {
       cost: 45000,
       dealer: "Müslüm",
       details: "Detaylar",
-      imagePath: ["assets/logo/logo.png", "assets/logo/logo.png"]);
+      imagePath: ["assets/logo/iphone.jpg", "assets/logo/logo.png"]);
   bool hasResult = false;
   @override
   Widget build(BuildContext context) {
@@ -107,6 +107,7 @@ class _SearchScreenViewState extends State<SearchScreenView> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
+              height: 15.h,
               item.imagePath[0],
               fit: BoxFit.fill,
             ),

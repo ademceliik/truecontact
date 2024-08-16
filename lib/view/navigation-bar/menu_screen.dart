@@ -1,4 +1,5 @@
 import 'package:calisma_app_1/view/menu/account_details_screen.dart';
+import 'package:calisma_app_1/view/menu/my_orders_screen_view.dart';
 import 'package:calisma_app_1/view/navigation_settings_screen.dart';
 import 'package:calisma_app_1/view/user_details_screen_view.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class MenuScreen extends StatefulWidget {
 
 class MenuScreenState extends State<MenuScreen> {
   List<Widget> pages = [
-    UserDetailsScreenView(), //Container(child: Text("1. sayfa")),
+    MyOrdersScreenView(), //Container(child: Text("1. sayfa")),
     Container(child: Text("2. sayfa")),
     AccountDetailsScreen(),
     NavigationSettingScreen(),
@@ -66,15 +67,20 @@ class MenuScreenState extends State<MenuScreen> {
                   InkWell(
                     onTap: () {},
                     child: Container(
+                      width: 15.h,
                       height: 15.h,
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.contain,
+                              image: AssetImage(
+                                "assets/logo/logo.png",
+                              )),
                           border: Border.all(
                               width: 2.w,
                               color: Colors.black,
                               style: BorderStyle.solid),
                           borderRadius: BorderRadius.all(Radius.circular(60))),
-                      child: Image.asset("assets/logo/logo.png"),
                     ),
                   ),
                   Text(

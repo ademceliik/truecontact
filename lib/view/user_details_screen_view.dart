@@ -46,14 +46,19 @@ class _UserDetailsScreenViewState extends State<UserDetailsScreenView> {
                     onTap: () {},
                     child: Container(
                       height: 15.h,
+                      width: 15.h,
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.contain,
+                              image: AssetImage(
+                                "assets/logo/logo.png",
+                              )),
                           border: Border.all(
-                              width: 1.w,
+                              width: 2.w,
                               color: Colors.black,
                               style: BorderStyle.solid),
                           borderRadius: BorderRadius.all(Radius.circular(60))),
-                      child: Image.asset("assets/logo/logo.png"),
                     ),
                   ),
                   Row(
