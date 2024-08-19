@@ -1,5 +1,6 @@
 import 'package:calisma_app_1/view/menu/account_details_screen.dart';
 import 'package:calisma_app_1/view/menu/my_orders_screen_view.dart';
+import 'package:calisma_app_1/view/menu/requests_screen_view.dart';
 import 'package:calisma_app_1/view/navigation_settings_screen.dart';
 import 'package:calisma_app_1/view/user_details_screen_view.dart';
 import 'package:flutter/material.dart';
@@ -15,15 +16,15 @@ class MenuScreen extends StatefulWidget {
 
 class MenuScreenState extends State<MenuScreen> {
   List<Widget> pages = [
-    MyOrdersScreenView(), //Container(child: Text("1. sayfa")),
-    Container(child: Text("2. sayfa")),
-    AccountDetailsScreen(),
-    NavigationSettingScreen(),
-    Container(child: Text("5. sayfa")),
-    Container(child: Text("6. sayfa")),
-    Container(child: Text("7. sayfa")),
-    Container(child: Text("8. sayfa")),
-    Container(child: Text("9. sayfa")),
+    const MyOrdersScreenView(), //Container(child: Text("1. sayfa")),
+    const RequestsScreenView(), //Container(child: Text("2. sayfa")),
+    const AccountDetailsScreen(),
+    const NavigationSettingScreen(),
+    Container(child: const Text("5. sayfa")),
+    Container(child: const Text("6. sayfa")),
+    Container(child: const Text("7. sayfa")),
+    Container(child: const Text("8. sayfa")),
+    Container(child: const Text("9. sayfa")),
   ];
   List<String> titles = [
     "Siparişlerim",
@@ -71,7 +72,7 @@ class MenuScreenState extends State<MenuScreen> {
                       height: 15.h,
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               fit: BoxFit.contain,
                               image: AssetImage(
                                 "assets/logo/logo.png",
@@ -80,7 +81,8 @@ class MenuScreenState extends State<MenuScreen> {
                               width: 2.w,
                               color: Colors.black,
                               style: BorderStyle.solid),
-                          borderRadius: BorderRadius.all(Radius.circular(60))),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(60))),
                     ),
                   ),
                   Text(

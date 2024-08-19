@@ -45,6 +45,9 @@ dependencies:
   # Map View
   google_maps_flutter_ios: ^2.13.0
   google_maps_flutter: ^2.9.0
+
+  # Switchable Toggle Buttons 
+  toggle_switch: ^2.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
