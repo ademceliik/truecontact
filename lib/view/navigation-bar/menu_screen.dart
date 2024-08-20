@@ -1,6 +1,8 @@
 import 'package:calisma_app_1/view/menu/account_details_screen.dart';
+import 'package:calisma_app_1/view/menu/language_choose_screen_view.dart';
 import 'package:calisma_app_1/view/menu/my_orders_screen_view.dart';
 import 'package:calisma_app_1/view/menu/requests_screen_view.dart';
+import 'package:calisma_app_1/view/menu/wallet_screen_view.dart';
 import 'package:calisma_app_1/view/navigation_settings_screen.dart';
 import 'package:calisma_app_1/view/user_details_screen_view.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +18,12 @@ class MenuScreen extends StatefulWidget {
 
 class MenuScreenState extends State<MenuScreen> {
   List<Widget> pages = [
-    const MyOrdersScreenView(), //Container(child: Text("1. sayfa")),
-    const RequestsScreenView(), //Container(child: Text("2. sayfa")),
+    const MyOrdersScreenView(),
+    const RequestsScreenView(),
     const AccountDetailsScreen(),
     const NavigationSettingScreen(),
-    Container(child: const Text("5. sayfa")),
-    Container(child: const Text("6. sayfa")),
+    const LanguageChooseScreenView(),
+    const WalletScreenView(),
     Container(child: const Text("7. sayfa")),
     Container(child: const Text("8. sayfa")),
     Container(child: const Text("9. sayfa")),
