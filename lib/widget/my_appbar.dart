@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget {
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({
     super.key,
+    this.leading,
+    this.actions,
   });
 
+  final Widget? leading;
+  final List<Widget>? actions;
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
-      title: Center(child: Image.asset("assets/logo/header-logo.png")),
-      leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded), onPressed: () {}),
-      actions: [
-        IconButton(
-            icon: Icon(
-              Icons.done_rounded,
-              color: Colors.red,
-            ),
-            onPressed: () {})
-      ],
-    );
+        backgroundColor: Colors.white,
+        title: Center(child: Image.asset("assets/logo/header-logo.png")),
+        leading: leading,
+        actions: actions);
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -17,14 +17,7 @@ class _NavigationSettingScreenState extends State<NavigationSettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(child: Image.asset("assets/logo/header-logo.png")),
-        leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new_rounded),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+      appBar: MyAppBar(
         actions: [
           IconButton(
               icon: const Icon(

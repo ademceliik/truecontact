@@ -1,4 +1,5 @@
 import 'package:calisma_app_1/widget/custom_text_field.dart';
+import 'package:calisma_app_1/widget/image_with_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -38,21 +39,11 @@ class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
         children: [
           InkWell(
             onTap: () {},
-            child: Container(
+            child: ImageWithBorder(
               height: 15.h,
               width: 15.h,
-              clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.contain,
-                      image: AssetImage(
-                        "assets/logo/logo.png",
-                      )),
-                  border: Border.all(
-                      width: 2.w,
-                      color: Colors.black,
-                      style: BorderStyle.solid),
-                  borderRadius: BorderRadius.all(Radius.circular(60))),
+              imagePath: "assets/logo/logo.png",
+              borderWidth: 2.w,
             ),
           ),
           SizedBox(height: 1.h),

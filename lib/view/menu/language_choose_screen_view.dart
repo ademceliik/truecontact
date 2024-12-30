@@ -1,5 +1,8 @@
+import 'package:calisma_app_1/widget/image_with_border.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../widget/my_appbar.dart';
 
 class LanguageChooseScreenView extends StatefulWidget {
   const LanguageChooseScreenView({super.key});
@@ -16,10 +19,7 @@ class _LanguageChooseScreenViewState extends State<LanguageChooseScreenView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(child: Image.asset("assets/logo/header-logo.png")),
-      ),
+      appBar: const MyAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -47,24 +47,13 @@ class _LanguageChooseScreenViewState extends State<LanguageChooseScreenView> {
                         children: [
                           Row(
                             children: [
-                              Container(
+                              ImageWithBorder(
                                 margin: EdgeInsets.symmetric(
                                     horizontal: 2.w, vertical: 2.w),
                                 height: 6.h,
                                 width: 6.h,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                    image: const DecorationImage(
-                                        fit: BoxFit.contain,
-                                        image: AssetImage(
-                                          "assets/logo/logo.png",
-                                        )),
-                                    border: Border.all(
-                                        width: 0.5.w,
-                                        color: Colors.black,
-                                        style: BorderStyle.solid),
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(60))),
+                                imagePath: "assets/logo/logo.png",
+                                borderWidth: 0.5.w,
                               ),
                               Text(
                                 "Türkçe",

@@ -1,10 +1,12 @@
 import 'package:calisma_app_1/view/menu/account_details_screen.dart';
+import 'package:calisma_app_1/view/menu/buy_truecoin_screen_view.dart';
 import 'package:calisma_app_1/view/menu/language_choose_screen_view.dart';
 import 'package:calisma_app_1/view/menu/my_orders_screen_view.dart';
 import 'package:calisma_app_1/view/menu/requests_screen_view.dart';
 import 'package:calisma_app_1/view/menu/wallet_screen_view.dart';
 import 'package:calisma_app_1/view/navigation_settings_screen.dart';
 import 'package:calisma_app_1/view/user_details_screen_view.dart';
+import 'package:calisma_app_1/widget/image_with_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -24,7 +26,7 @@ class MenuScreenState extends State<MenuScreen> {
     const NavigationSettingScreen(),
     const LanguageChooseScreenView(),
     const WalletScreenView(),
-    Container(child: const Text("7. sayfa")),
+    const BuyTruecoinScreenView(),
     Container(child: const Text("8. sayfa")),
     Container(child: const Text("9. sayfa")),
   ];
@@ -68,25 +70,13 @@ class MenuScreenState extends State<MenuScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: () {},
-                    child: Container(
-                      width: 15.h,
-                      height: 15.h,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                          image: const DecorationImage(
-                              fit: BoxFit.contain,
-                              image: AssetImage(
-                                "assets/logo/logo.png",
-                              )),
-                          border: Border.all(
-                              width: 2.w,
-                              color: Colors.black,
-                              style: BorderStyle.solid),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(60))),
-                    ),
-                  ),
+                      onTap: () {},
+                      child: ImageWithBorder(
+                        width: 15.h,
+                        height: 15.h,
+                        imagePath: "assets/logo/logo.png",
+                        borderWidth: 2.w,
+                      )),
                   Text(
                     "Adem",
                     style: TextStyle(

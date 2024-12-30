@@ -1,6 +1,7 @@
 import 'package:calisma_app_1/view/menu/personal_email_change_screen.dart';
 import 'package:calisma_app_1/view/menu/personal_password_change_screen.dart';
 import 'package:calisma_app_1/view/menu/personal_photos_screen.dart';
+import 'package:calisma_app_1/widget/my_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -55,9 +56,7 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Center(child: Image.asset("assets/logo/header-logo.png")),
+        appBar: MyAppBar(
           leading: IconButton(
               icon: const Icon(Icons.arrow_back_ios_new_rounded),
               onPressed: () {
